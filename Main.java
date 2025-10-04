@@ -15,20 +15,20 @@ public class Main {
 		    System.out.printf("%dx%d\n",height,width);
 		    StringBuilder s = new StringBuilder();
 		    for(int x = 0;x<width;x++) {
-			for(int y =0;y<height;y++) {
-			    int i_rgb = image.getRGB(x, y);
-			    var color = new Color(i_rgb);
-			    int rgb = (color.getRed() + color.getBlue() + color.getGreen())
-				    		/3;
-			    if(y % width == 1) {
-				s.append('\n');
-			    }
-			    final int BYTE_SIZE = 255;
-			    int ratio = BYTE_SIZE / 4 ;
-			    int ascii_index = ( rgb / ratio ) ;
-			    s.append(ascii[ascii_index]);
-			    
-			}
+				for(int y =0;y<height;y++) {
+				    int i_rgb = image.getRGB(x, y);
+				    var color = new Color(i_rgb);
+				    int rgb = (color.getRed() + color.getBlue() + color.getGreen())
+					    		/3;
+				    if(y % width == 1) {
+						s.append('\n');
+				    }
+				    final int BYTE_SIZE = 255;
+				    int ratio = BYTE_SIZE / 4 ;
+				    int ascii_index = ( rgb / ratio ) ;
+				    s.append(ascii[ascii_index]);
+				    
+				}
 		    }
 		    File output = new File("output_path");
 		    var printer = new PrintStream(output);
